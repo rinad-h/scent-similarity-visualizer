@@ -1,13 +1,12 @@
-# perfume_terminal_app.py
+#perfume_terminal_app.py
 
 import pickle
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# -----------------------
-# 1. Load Cleaned Data & Precomputed Similarities
-# -----------------------
+
+# 1.Load Cleaned Data & Precomputed Similarities
 df = pd.read_excel('database/perfume_database_cleaned.xlsx')
 
 with open('database/vect_index_bert.pickle', 'rb') as f:
@@ -16,14 +15,10 @@ with open('database/vect_index_bert.pickle', 'rb') as f:
 with open('database/vect_values_bert.pickle', 'rb') as f:
     vect_values = pickle.load(f)
 
-# -----------------------
-# 2. Optional: Load BERT Model (for new perfumes)
-# -----------------------
+# 2.Load BERT Model (for new perfumes)
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# -----------------------
-# 3. Main Loop
-# -----------------------
+# 3.Main Loop
 print("=== Perfume Similarity Terminal App ===")
 print("Type 'exit' at any time to quit.\n")
 
@@ -35,7 +30,7 @@ while True:
     if perfume_input.lower() == 'exit':
         break
     
-    # Find perfume in dataset
+    #Find perfume in dataset
     match = df[(df['brand'].str.lower() == brand_input.lower()) &
                (df['perfume'].str.lower() == perfume_input.lower())]
     
