@@ -49,5 +49,34 @@ def similar_perfumes():
 
     return jsonify({"similar_perfumes": results})
 
+@app.route('/autocomplete', methods=['GET'])
+def autocomplete():
+    q = request.args.get('q', '').strip().lower()
+    field = request.args.get('field', 'brand').strip().lower()
+    brand = request.args.get('brand', '').strip().lower()
+
+    if field not in ('brand', 'perfume'):
+        return jsonify({'error': 'invalid field'}), 400
+
+    if field == 'brand':
+        values = df['brand'].dropna().unique()
+        matches = [v for v in values if v.lower().startswith(q)]
+        if not matches:
+            return jsonify({'available': False, 'suggestions': []})
+        return jsonify({'available': True, 'suggestions': sorted(matches)[:10]})
+
+    # perfume path
+    if brand:
+        subset = df[df['brand'].str.lower() == brand]
+    else:
+        subset = df
+
+    values = subset['perfume'].dropna().unique()
+    matches = [v for v in values if v.lower().startswith(q)]
+    if not matches:
+        return jsonify({'available': False, 'suggestions': []})
+    return jsonify({'available': True, 'suggestions': sorted(matches)[:10]})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
