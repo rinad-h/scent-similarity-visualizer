@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 function HomePage() {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    // Placeholder logout logic
+    console.log("User logged out");
+  };
+
   return (
     <div className="container">
       <div className="content">
@@ -14,8 +19,7 @@ function HomePage() {
           </div>
 
           <div className="auth-buttons">
-            <button>Login</button>
-            <button>Signup</button>
+            <button onClick={handleLogout}>Logout</button>
           </div>
         </div>
 
