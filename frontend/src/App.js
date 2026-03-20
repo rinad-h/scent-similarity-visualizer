@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SimilarityFeature from "./features/similarity/SimilarityFeature";
 import LoginPage from "./pages/LoginPage";
+import ResultsPage from "./pages/ResultsPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/discover" element={<SimilarityFeature />} />
+        <Route path="/results" element={<ResultsPage />} />
       </Routes>
     </Router>
   );
