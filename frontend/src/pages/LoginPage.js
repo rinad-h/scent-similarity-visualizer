@@ -26,7 +26,7 @@ const handleLogin = async (e) => {
     const data = await res.json();
     //if the admin loggged in properly, take them to the home page, otherwise give and error message
     if (res.ok && data.success) {
-      navigate("/home");
+      navigate("/admin");
     } else {
       setError(data.error || "Login failed. Please try again.");
     }
