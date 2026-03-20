@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../common/Navbar";
 import "../styles/ResultsPage.css";
 
 // SAMPLE PLACEHOLDER DATA TILL LLM STUFF IS DONE :)
@@ -55,33 +56,8 @@ export default function ResultsPage() {
 
   return (
     <div className="results-root">
-      <header className="results-header">
-        <div className="header-brand" onClick={() => navigate("/")}>
-          <span className="header-logo-icon">🌸</span>
-          <span className="header-logo-text">
-            Fragrance <span>Finder</span>
-          </span>
-        </div>
 
-        <nav className="header-nav">
-          {isLoggedIn ? (
-            <>
-              <button className="btn-nav-ghost" onClick={() => {/* to do: logout logic */}}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <button className="btn-nav-ghost" onClick={() => navigate("/login")}>
-                Login
-              </button>
-              <button className="btn-nav-filled" onClick={() => navigate("/signup")}>
-                Sign Up
-              </button>
-            </>
-          )}
-        </nav>
-      </header>
+      <Navbar isLoggedIn={isLoggedIn} onLogout={() => { /* to do: logout logic */ }} />
 
       <main className="results-main">
 
