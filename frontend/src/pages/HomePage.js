@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Navbar from "../common/Navbar";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -9,7 +10,10 @@ function HomePage() {
   };
 
   return (
+    <div>
+    <Navbar />
     <div className="container">
+      
       <div className="content">
 
         {/* Header */}
@@ -37,6 +41,7 @@ function HomePage() {
         </div>
 
       </div>
+    </div>
     </div>
   );
 }
