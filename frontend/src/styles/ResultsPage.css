@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+.results-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4ef 45%, #fcd5e5 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.results-root::before,
+.results-root::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+  filter: blur(60px);
+}
+.results-root::before {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #f9a8d4, #fbcfe8);
+  top: -120px; right: -80px;
+}
+.results-root::after {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, #fce7f3, #f9a8d4);
+  bottom: -80px; left: -60px;
+}
+
+.results-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.4rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(249, 168, 212, 0.3);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-logo-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.header-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #831843;
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+.header-logo-text span {
+  color: #db2777;
+  font-style: italic;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.btn-nav-ghost {
+  padding: 0.48rem 1.1rem;
+  background: transparent;
+  border: 1.5px solid #fbcfe8;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #be185d;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.btn-nav-ghost:hover {
+  background: rgba(249, 168, 212, 0.2);
+  border-color: #f472b6;
+}
+
+.btn-nav-filled {
+  padding: 0.48rem 1.2rem;
+  background: #ec4899;
+  border: none;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3);
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.btn-nav-filled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.4);
+}
+
+.results-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 4rem;
+  gap: 1.6rem;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.results-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #be185d;
+  background: rgba(249, 168, 212, 0.22);
+  border: 1px solid rgba(249, 168, 212, 0.5);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+}
+
+.perfume-hero-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(249, 168, 212, 0.38);
+  border-radius: 28px;
+  box-shadow: 0 10px 48px rgba(236, 72, 153, 0.12), 0 2px 10px rgba(0,0,0,0.05);
+  width: 100%;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+
+.perfume-visual {
+  flex-shrink: 0;
+  width: 200px;
+  background: linear-gradient(160deg, rgba(253, 242, 248, 0.9) 0%, rgba(252, 231, 243, 0.7) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem 1.5rem;
+  gap: 0.8rem;
+  border-right: 1px solid rgba(249, 168, 212, 0.3);
+}
+
+.perfume-bottle-icon {
+  font-size: 4.5rem;
+  filter: drop-shadow(0 4px 12px rgba(236, 72, 153, 0.22));
+  animation: floatBottle 3.5s ease-in-out infinite;
+}
+
+@keyframes floatBottle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.perfume-match-badge {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px rgba(236, 72, 153, 0.32);
+}
+
+.perfume-info {
+  flex: 1;
+  padding: 2.4rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.perfume-brand {
+  font-size: 0.73rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #db2777;
+}
+
+.perfume-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #831843;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.perfume-price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #9d4672;
+}
+
+.perfume-price span {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #be185d;
+  margin-left: 0.3rem;
+}
+
+/* Notes pyramid */
+.notes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notes-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #be185d;
+}
+
+.notes-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.notes-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.notes-tier {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9d4672;
+  width: 36px;
+  flex-shrink: 0;
+}
+
+.notes-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.note-pill {
+  background: rgba(249, 168, 212, 0.22);
+  border: 1px solid rgba(249, 168, 212, 0.5);
+  color: #831843;
+  font-size: 0.75rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: 50px;
+}
+
+/* ── Description Card ── */
+.description-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(249, 168, 212, 0.38);
+  border-radius: 24px;
+  padding: 2rem 2.2rem;
+  width: 100%;
+  box-shadow: 0 6px 28px rgba(236, 72, 153, 0.09);
+}
+
+.card-section-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #be185d;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(249, 168, 212, 0.45);
+}
+
+.description-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+  font-style: italic;
+  color: #6b1a35;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #be185d;
+  background: rgba(249, 168, 212, 0.18);
+  border: 1px solid rgba(249, 168, 212, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(249, 168, 212, 0.38);
+  border-radius: 24px;
+  width: 100%;
+  box-shadow: 0 6px 28px rgba(236, 72, 153, 0.09);
+  overflow: hidden;
+}
+
+.why-toggle {
+  width: 100%;
+  padding: 1.3rem 2.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'DM Sans', sans-serif;
+  text-align: left;
+}
+
+.why-toggle-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #be185d;
+}
+
+.why-chevron {
+  font-size: 0.8rem;
+  color: #be185d;
+  transition: transform 0.25s;
+}
+.why-chevron.open {
+  transform: rotate(180deg);
+}
+
+.why-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease, padding 0.25s;
+  padding: 0 2.2rem;
+}
+.why-body.open {
+  max-height: 400px;
+  padding: 0 2.2rem 1.8rem;
+}
+
+.why-reason-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.why-reason-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.why-reason-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ec4899;
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+}
+
+.why-reason-text {
+  font-size: 0.9rem;
+  color: #6b1a35;
+  line-height: 1.6;
+}
+
+.why-reason-text strong {
+  color: #831843;
+  font-weight: 500;
+}
+
+.results-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  width: 100%;
+  justify-content: center;
+  padding-top: 0.4rem;
+}
+
+.btn-action-primary {
+  padding: 0.82rem 1.8rem;
+  background: #ec4899;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  box-shadow: 0 5px 20px rgba(236, 72, 153, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-action-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(236, 72, 153, 0.44);
+}
+
+.btn-action-secondary {
+  padding: 0.82rem 1.8rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #be185d;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1.5px solid #fbcfe8;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-action-secondary:hover {
+  background: rgba(249, 168, 212, 0.18);
+  border-color: #f472b6;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .perfume-hero-card { flex-direction: column; }
+  .perfume-visual {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(249, 168, 212, 0.3);
+    padding: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1.2rem;
+  }
+  .perfume-bottle-icon { font-size: 3.2rem; }
+  .perfume-name { font-size: 1.9rem; }
+  .results-actions { flex-direction: column; }
+  .btn-action-primary, .btn-action-secondary { justify-content: center; }
+  .results-header { padding: 0.9rem 1.2rem; }
+}

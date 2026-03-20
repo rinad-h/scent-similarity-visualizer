@@ -27,7 +27,7 @@ function HomePage() {
 
         {/* Main Buttons */}
         <div className="home-buttons">
-          <button onClick={() => alert("Preference page not built yet")}>
+          <button onClick={() => navigate("/results")}>
             Get My Recommendation
           </button>
 
