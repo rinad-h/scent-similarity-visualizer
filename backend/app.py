@@ -4,6 +4,7 @@ import pickle
 from sentence_transformers import SentenceTransformer
 from flask_cors import CORS
 import os
+from gemini_service import generate_fragrance_recommendation
  
 app = Flask(__name__)
 CORS(app)
@@ -124,6 +125,35 @@ def autocomplete():
     if not matches:
         return jsonify({'available': False, 'suggestions': []})
     return jsonify({'available': True, 'suggestions': sorted(matches)[:10]})
+ 
+# using gemini API to generate fragrance recommendations based on user preferences
+@app.route('/api/recommendations', methods=['POST'])
+def get_recommendations():
+    data = request.get_json()
+    
+    if not data:
+        return jsonify({"success": False, "error": "No data provided."}), 400
+    
+    try:
+        recommendations = generate_fragrance_recommendation(data, df)
+        
+        return jsonify({
+            "success": True,
+            "recommendations": recommendations['recommendation_text'],
+            "suggested_perfumes": recommendations['filtered_perfumes']
+        }), 200
+    
+    except ValueError as e:
+        return jsonify({
+            "success": False,
+            "error": "API configuration error. Please ensure GEMINI_API_KEY is set."
+        }), 500
+    
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Error generating recommendations: {str(e)}"
+        }), 500
  
  
 if __name__ == '__main__':
