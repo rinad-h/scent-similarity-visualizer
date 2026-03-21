@@ -25,12 +25,10 @@ cd backend
 Install the required Python dependencies:
 
 ```bash
-pip install flask
-pip install flask-cors
-pip install pandas
-pip install openpyxl
-pip install sentence-transformers
+pip install -r requirements.txt
 ```
+
+Create the `.env` file and add a Gemini API key. (see `env.example`)
 
 ## Running the Backend
 
