@@ -1,45 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../common/Navbar";
+import "../styles/HomePage.css";
 
 function HomePage() {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Placeholder logout logic
-    console.log("User logged out");
-  };
-
   return (
-    <div>
-    <Navbar />
-    <div className="container">
-      
-      <div className="content">
-        {/* Header */}
-        <div className="header">
-          <div className="logo" onClick={() => navigate("/")}>
-            SB
-          </div>
-
-          <div className="auth-buttons">
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-        </div>
-
-        <h1>Fragrance Finder</h1>
-
-        {/* Main Buttons */}
+    <div className="home-root">
+      <Navbar />
+      <div className="hero">
+        <h1 className="hero-title">Fragrance Finder</h1>
+        <p className="hero-subtitle">
+          Discover your signature scent or explore similar perfumes based on your preferences. Whether you're looking for a new fragrance or want to find perfumes similar to your favorites, we've got you covered.
+        </p>
         <div className="home-buttons">
           <button onClick={() => navigate("/preferences")}>
             Get My Recommendation
           </button>
-
           <button onClick={() => navigate("/discover")}>
-            Explore All Perfumes
+            Explore Similar Perfumes
           </button>
         </div>
+        <div className="rotating-bg"></div>
       </div>
-    </div>
     </div>
   );
 }
