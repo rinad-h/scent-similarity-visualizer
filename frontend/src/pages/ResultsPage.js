@@ -288,7 +288,7 @@ export default function ResultsPage() {
 
           <button
             className="btn-action-secondary"
-            onClick={() => navigate("/similar")}
+            onClick={() => navigate("/discover")}
           >
             ✦ Explore Similar
           </button>
