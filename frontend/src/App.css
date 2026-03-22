@@ -1,8 +1,10 @@
 /* Make body full-screen and set background */
-body, html, #root {
+body,
+html,
+#root {
   height: 100%;
   margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #ffe6f0; /* light pink background for full screen */
 }
 
@@ -32,7 +34,6 @@ body, html, #root {
   width: 80px;
   height: 80px;
   margin: 0 auto 1rem;
-  background-color: #d4a5a5; /* brownish placeholder */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -120,7 +121,9 @@ button:hover {
   border-radius: 15px;
   padding: 1rem;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .results li:hover {
@@ -194,4 +197,3 @@ button:hover {
 .home-buttons button {
   font-size: 1.1rem;
 }
-

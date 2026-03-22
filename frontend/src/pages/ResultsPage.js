@@ -3,6 +3,8 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/ResultsPage.css";
 
+const SAVED_PREFERENCES_KEY = "savedFragrancePreferences";
+
 // decided to clean the LLM response on this page since this is the only place that needs it. can be extracted to a utils file if needed in the future.
 const cleanMarkdown = (text = "") =>
   text
@@ -124,9 +126,28 @@ export default function ResultsPage() {
   ].filter(Boolean);
 
   const handleSave = () => {
-    //to do: save logic
-    setSaved(true);
-    setTimeout(() => navigate("/"), 1200);
+    try {
+      const existingRaw = localStorage.getItem(SAVED_PREFERENCES_KEY);
+      const existing = existingRaw ? JSON.parse(existingRaw) : [];
+
+      const entry = {
+        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        createdAt: new Date().toISOString(),
+        userPreferences,
+        recommendation: recommendations,
+        suggestedPerfumes,
+      };
+
+      const safeExisting = Array.isArray(existing) ? existing : [];
+      localStorage.setItem(
+        SAVED_PREFERENCES_KEY,
+        JSON.stringify([entry, ...safeExisting]),
+      );
+
+      setSaved(true);
+    } catch (error) {
+      console.error("Failed to save preferences:", error);
+    }
   };
 
   if (!recommendations && suggestedPerfumes.length === 0) {
@@ -154,8 +175,12 @@ export default function ResultsPage() {
 
   return (
     <div className="results-root">
-
-      <Navbar isLoggedIn={isLoggedIn} onLogout={() => { /* to do: logout logic */ }} />
+      <Navbar
+        isLoggedIn={isLoggedIn}
+        onLogout={() => {
+          /* to do: logout logic */
+        }}
+      />
 
       <main className="results-main">
         <div className="results-eyebrow">Your Personalised Recommendation</div>
