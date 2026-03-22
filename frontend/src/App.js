@@ -5,8 +5,7 @@ import HomePage from "./pages/HomePage";
 import SimilarityFeature from "./features/similarity/SimilarityFeature";
 import LoginPage from "./pages/LoginPage";
 import ResultsPage from "./pages/ResultsPage";
-import AdminDashboard from "./pages/AdminDashboard";
-import PerfumePage from "./pages/PerfumePage";
+import PreferencesPage from "./pages/PreferencesPage";
 
 function App() {
   return (
@@ -14,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/preferences" element={<PreferencesPage />} />
         <Route path="/discover" element={<SimilarityFeature />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/admin" element={<AdminDashboard />} />

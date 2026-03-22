@@ -11,7 +11,6 @@ function HomePage() {
   return (
     <div className="container">
       <div className="content">
-
         {/* Header */}
         <div className="header">
           <div className="logo" onClick={() => navigate("/")}>
@@ -27,7 +26,7 @@ function HomePage() {
 
         {/* Main Buttons */}
         <div className="home-buttons">
-          <button onClick={() => navigate("/results")}>
+          <button onClick={() => navigate("/preferences")}>
             Get My Recommendation
           </button>
 
@@ -35,7 +34,6 @@ function HomePage() {
             Explore All Perfumes
           </button>
         </div>
-
       </div>
     </div>
   );
