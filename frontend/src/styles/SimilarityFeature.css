@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Page shell ─────────────────────────────────────────────── */
+.sim-page {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4ef 50%, #fcd5e5 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.sim-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blurred blob */
+.sim-hero-bg {
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  background: rgba(236, 72, 153, 0.13);
+  border-radius: 50%;
+  animation: rotate 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.sim-hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -180px;
+  width: 300px;
+  height: 300px;
+  background: rgba(219, 39, 119, 0.08);
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.sim-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.6rem;
+  font-weight: 600;
+  color: #831843;
+  margin: 0 0 0.7rem;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 12px rgba(236, 72, 153, 0.18);
+  position: relative;
+  z-index: 1;
+}
+
+.sim-hero-subtitle {
+  font-size: 1.1rem;
+  color: #9d4672;
+  font-weight: 300;
+  margin: 0 0 2.6rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Search form ─────────────────────────────────────────────── */
+.sim-search-form {
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.sim-inputs-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.sim-inputs-row .autocomplete-field {
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+
+.sim-inputs-row input {
+  width: 100%;
+  padding: 0.82rem 1.2rem;
+  border: 1.5px solid #fbcfe8;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.93rem;
+  color: #831843;
+  background: rgba(255, 255, 255, 0.82);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 10px rgba(236, 72, 153, 0.08);
+}
+.sim-inputs-row input:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.13);
+}
+.sim-inputs-row input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Autocomplete dropdown */
+.suggestions {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1.5px solid #fbcfe8;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(236, 72, 153, 0.14);
+  z-index: 50;
+  overflow: hidden;
+}
+.suggestions li {
+  padding: 0.62rem 1.2rem;
+  font-size: 0.9rem;
+  color: #831843;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+.suggestions li:hover {
+  background: rgba(249, 168, 212, 0.18);
+}
+
+/* Find button */
+.sim-btn-find {
+  padding: 0.82rem 2rem;
+  background: linear-gradient(135deg, #ec4899 0%, #d63384 100%);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  box-shadow:
+    0 6px 24px rgba(236, 72, 153, 0.38),
+    0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.sim-btn-find:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 12px 34px rgba(236, 72, 153, 0.46),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Errors */
+.sim-field-error {
+  font-size: 0.78rem;
+  color: #be123c;
+  margin: 0.3rem 0 0 1rem;
+}
+.sim-error {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: #be123c;
+  background: rgba(254, 205, 211, 0.5);
+  border: 1px solid #fda4af;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  text-align: center;
+}
+
+/* ── Results section ─────────────────────────────────────────── */
+.sim-results-section {
+  padding: 2rem 2rem 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sim-results-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #831843;
+  margin: 0 0 1.6rem;
+  text-align: center;
+  letter-spacing: -0.3px;
+}
+
+.sim-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Individual result card */
+.sim-result-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(249, 168, 212, 0.35);
+  border-radius: 24px;
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  box-shadow:
+    0 4px 20px rgba(236, 72, 153, 0.09),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.sim-result-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 36px rgba(236, 72, 153, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.sim-result-rank {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #db2777;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sim-result-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #831843;
+  margin: 0.2rem 0 0;
+  line-height: 1.2;
+}
+
+.sim-result-brand {
+  font-size: 0.85rem;
+  color: #be185d;
+  font-weight: 400;
+  margin: 0;
+}
+
+.sim-result-divider {
+  width: 32px;
+  height: 1.5px;
+  background: #f9a8d4;
+  border-radius: 2px;
+  margin: 0.6rem 0;
+}
+
+.sim-result-notes {
+  font-size: 0.88rem;
+  color: #6b2145;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.sim-result-score {
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #9d4672;
+  background: rgba(249, 168, 212, 0.18);
+  border-radius: 50px;
+  padding: 0.28rem 0.8rem;
+  align-self: flex-start;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .sim-hero-title { font-size: 2.5rem; }
+  .sim-hero-subtitle { font-size: 0.95rem; }
+  .sim-inputs-row { flex-direction: column; }
+  .sim-btn-find { width: 100%; }
+  .sim-results-grid { grid-template-columns: 1fr; }
+}
