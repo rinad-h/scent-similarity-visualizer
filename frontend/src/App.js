@@ -16,6 +16,9 @@ function App() {
         <Route path="/preferences" element={<PreferencesPage />} />
         <Route path="/discover" element={<SimilarityFeature />} />
         <Route path="/results" element={<ResultsPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/perfume/new" element={<PerfumePage />} />
+        <Route path="/admin/perfume/edit/:id" element={<PerfumePage />} />
       </Routes>
     </Router>
   );
