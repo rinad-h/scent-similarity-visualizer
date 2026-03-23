@@ -30,7 +30,7 @@
 }
 
 .preferences-header .logo {
-  font-size: 2rem;
+  font-size: 4rem;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -53,29 +53,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: "DM Sans", sans-serif;
-}
-
-.login-btn,
-.signup-btn {
-  background: rgba(249, 168, 212, 0.2);
-  color: #c2185b;
-  border: 1px solid rgba(249, 168, 212, 0.5);
-}
-
-.login-btn:hover,
-.signup-btn:hover {
-  background: rgba(249, 168, 212, 0.3);
-  transform: translateY(-2px);
-}
-
-.logout-btn {
-  background: #ec4991;
-  color: white;
-}
-
-.logout-btn:hover {
-  background: #d63384;
-  transform: translateY(-2px);
 }
 
 /* Content Styles */
@@ -104,6 +81,35 @@
   text-align: center;
   margin: 0 0 2rem 0;
   line-height: 1.6;
+}
+
+.saved-preference-card {
+  margin-bottom: 1.6rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(249, 168, 212, 0.45);
+  background: rgba(255, 240, 245, 0.65);
+}
+
+.saved-preference-title {
+  margin: 0 0 0.6rem 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #be185d;
+}
+
+.saved-preference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem 1rem;
+  font-size: 0.9rem;
+  color: #6b0d2d;
+}
+
+.saved-preference-grid p {
+  margin: 0;
 }
 
 .preferences-form {
@@ -245,6 +251,10 @@
 
   .preferences-subtitle {
     font-size: 0.9rem;
+  }
+
+  .saved-preference-grid {
+    grid-template-columns: 1fr;
   }
 
   .form-select {

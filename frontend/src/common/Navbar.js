@@ -12,23 +12,6 @@ export default function Navbar({ isLoggedIn, onLogout }) {
           Fragrance <span>Finder</span>
         </span>
       </div>
-
-      <nav className="header-nav">
-        {isLoggedIn ? (
-          <button className="btn-nav-ghost" onClick={onLogout}>
-            Logout
-          </button>
-        ) : (
-          <>
-            <button className="btn-nav-ghost" onClick={() => navigate("/login")}>
-              Login
-            </button>
-            <button className="btn-nav-filled" onClick={() => navigate("/signup")}>
-              Sign Up
-            </button>
-          </>
-        )}
-      </nav>
     </header>
   );
 }
