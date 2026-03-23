@@ -6,6 +6,8 @@ import SimilarityFeature from "./features/similarity/SimilarityFeature";
 import LoginPage from "./pages/LoginPage";
 import ResultsPage from "./pages/ResultsPage";
 import PreferencesPage from "./pages/PreferencesPage";
+import AdminDashboard from "./pages/AdminDashboard";   
+import PerfumePage from "./pages/PerfumePage";      
 
 function App() {
   return (
